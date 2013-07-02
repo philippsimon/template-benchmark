@@ -29,6 +29,15 @@ module.exports = function validate(samples, data, options, callback) {
 
 	var error = false;
 
+	function booleanToColoredString(value) {
+		var red   = '\u001b[31m';
+		var green = '\u001b[32m';
+		var reset = '\u001b[0m';
+
+		if (value) return red + value + reset;
+		else return green + value + reset;
+	}
+
 	function beautify_html(html) {
 		if (html) {
 			// clean html
@@ -57,8 +66,8 @@ module.exports = function validate(samples, data, options, callback) {
 					if (err || errUnescaped) error = true;
 
 					console.log(sample.name);
-					console.log('  Escaped   : ' + err);
-					console.log('  Unescaped : ' + errUnescaped);
+					console.log('  Escaped   : ' + booleanToColoredString(err));
+					console.log('  Unescaped : ' + booleanToColoredString(err));
 					console.log('');
 					validateSamples(i + 1);
 				});
