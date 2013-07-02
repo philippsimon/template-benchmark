@@ -12,7 +12,7 @@
 	"dependencies": {
 		"coffeekup": "0.3.1",
 		"dot": "1.0.0",
-		"doT": "git+ssh://git@github.com:printercu/doT.git#master",
+		"doT": "https://github.com/printercu/doT/archive/master.tar.gz",
 		"dustjs-linkedin": "https://github.com/linkedin/dustjs/archive/v1.2.6.tar.gz",
 		"eco": "1.1.0-rc-3",
 		"ect": "0.5.2",
