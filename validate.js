@@ -34,8 +34,8 @@ module.exports = function validate(samples, data, options, callback) {
 		var green = '\u001b[32m';
 		var reset = '\u001b[0m';
 
-		if (value) return red + value + reset;
-		else return green + value + reset;
+		if (value) return green + value + reset;
+		else return red + value + reset;
 	}
 
 	function beautify_html(html) {
