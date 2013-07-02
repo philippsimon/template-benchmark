@@ -4,6 +4,8 @@ var compiled;
 var tplData;
 
 module.exports.prepare = function(data, done) {
+	dot.templateSettings['with'] = true;
+
 	var str = fs.readFileSync(__dirname + '/tpl_escaped.dot', 'utf8');
 	tplData = data;
 	compiled = dot.template(str);
@@ -11,6 +13,8 @@ module.exports.prepare = function(data, done) {
 };
 
 module.exports.prepareUnescaped = function(data, done) {
+	dot.templateSettings['with'] = true;
+
 	var str = fs.readFileSync(__dirname + '/tpl_unescaped.dot', 'utf8');
 	tplData = data;
 	compiled = dot.template(str);

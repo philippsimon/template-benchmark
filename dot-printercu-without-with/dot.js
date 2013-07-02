@@ -14,7 +14,7 @@ module.exports.prepare = function(data, done) {
 
 module.exports.prepareUnescaped = function(data, done) {
 	dot.templateSettings['with'] = false;
-	
+
 	var str = fs.readFileSync(__dirname + '/tpl_unescaped.dot', 'utf8');
 	tplData = data;
 	compiled = dot.template(str);
