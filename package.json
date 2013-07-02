@@ -16,6 +16,7 @@
 		"dustjs-linkedin": "1.2.1",
 		"fest": "0.5.4",
 		"dot": "1.0.1",
+		"doT": "git+ssh://git@github.com:printercu/doT.git#master",
 		"handlebars": "1.0.9",
 		"coffeekup": "0.3.1",
 		"underscore": "1.4.4",

@@ -12,6 +12,8 @@ var hogan = require('./hogan/hogan.js');
 var dust = require('./dust/dust.js');
 var fest = require('./fest/fest.js');
 var dot = require('./dot/dot.js');
+var dotPrintercu = require('./dot-printercu/dot.js');
+var dotPrintercuWithoutWith = require('./dot-printercu-without-with/dot.js');
 var handlebars = require('./handlebars/handlebars.js');
 var coffeekup = require('./coffeekup/coffeekup.js');
 var underscore = require('./underscore/underscore.js');
@@ -26,7 +28,7 @@ var test = function(name, sample, cb) {
 			var now = Date.now();
 			cb(null, name, now - start);
 		}
-	}
+	};
 	sample.prepare(data, function() {
 		start = Date.now();
 		for (var j = 0; j < count; j++) {
@@ -44,7 +46,7 @@ var testUnescaped = function(name, sample, cb) {
 			var now = Date.now();
 			cb(null, name, now - start);
 		}
-	}
+	};
 	sample.prepareUnescaped(data, function() {
 		start = Date.now();
 		for (var j = 0; j < count; j++) {
@@ -54,7 +56,6 @@ var testUnescaped = function(name, sample, cb) {
 };
 
 var samples = [
-
 	{ name : 'Jade', sample : jade },
 	{ name : 'CoffeeKup', sample : coffeekup },
 	{ name : 'Jade without `with`', sample : jadeWithoutWith },
@@ -63,6 +64,8 @@ var samples = [
 	{ name : 'EJS', sample : ejs },
 	{ name : 'Underscore', sample : underscore },
 	{ name : 'Swig', sample : swig },
+	{ name : 'doT (printercu) without `with`', sample : dotPrintercuWithoutWith },
+	{ name : 'doT (printercu)', sample : dotPrintercu },
 	{ name : 'doT', sample : dot },
 	{ name : 'EJS without `with`', sample : ejsWithoutWith },
 	{ name : 'Fest', sample : fest },
