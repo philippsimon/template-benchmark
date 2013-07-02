@@ -1,7 +1,7 @@
 {
-	"name" : "template-benchmark",
-	"version" : "0.1.2",
-	"author" : "Vadim M. Baryshev <vadimbaryshev@gmail.com>",
+	"name": "template-benchmark",
+	"version": "0.1.2",
+	"author": "Vadim M. Baryshev <vadimbaryshev@gmail.com>",
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/baryshev/template-benchmark.git"
@@ -10,9 +10,6 @@
 		"test": "node ./benchmark.js --test"
 	},
 	"dependencies": {
-		"optimist": "latest",
-		"js-beautify": "latest",
-
 		"coffeekup": "0.3.1",
 		"dot": "1.0.0",
 		"doT": "git+ssh://git@github.com:printercu/doT.git#master",
@@ -27,5 +24,9 @@
 		"jade": "0.32.0",
 		"swig": "0.14.0",
 		"underscore": "1.4.4"
+	},
+	"devDependencies": {
+		"optimist": "latest",
+		"js-beautify": "latest"
 	}
 }
