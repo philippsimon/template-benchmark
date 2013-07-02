@@ -1,4 +1,4 @@
-# Node.JS template engines benchmark
+# Node.JS template engines benchmark # [![Build Status](https://api.travis-ci.org/philippsimon/template-benchmark.png)](https://api.travis-ci.org/philippsimon/template-benchmark)
 
 ## Engines
 
