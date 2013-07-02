@@ -6,7 +6,7 @@ var jsBeautify = require('js-beautify');
  *
  * @param  {Array}    samples
  * @param  {Object}   data
- * @param  {Boolean}  [options.resultsRaw = false]
+ * @param  {Boolean}  [options.resultsRaw = true]
  * @param  {Boolean}  [options.resultsBeautify = true]
  * @param  {String}   [options.validResultFileEscaped = 'valid-result-escaped.beautfiy.html]
  * @param  {String}   [options.validResultFileUnescaped = 'valid-result-unescaped.beautfiy.html']
@@ -19,7 +19,7 @@ module.exports = function validate(samples, data, options, callback) {
 	}
 
 	if (!options) options = {};
-	if (!('resultsRaw' in options)) options.resultsRaw = false;
+	if (!('resultsRaw' in options)) options.resultsRaw = true;
 	if (!('resultsBeautify' in options)) options.resultsBeautify = true;
 	if (!('validResultFileEscaped' in options)) options.validResultFileEscaped = 'valid-result-escaped.beautfiy.html';
 	if (!('validResultFileUnescaped' in options)) options.validResultFileUnescaped = 'valid-result-unescaped.beautfiy.html';
