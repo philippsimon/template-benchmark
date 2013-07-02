@@ -49,10 +49,10 @@ module.exports = function validate(samples, data, options, callback) {
 			validateEscaped(sample.name, sample.sample, function(err, html) {
 				validateUnescaped(sample.name, sample.sample, function(errUnescaped, htmlUnescaped) {
 					// store results
-					if (options.resultsRaw) fs.writeFile(__dirname + '/results/' + sample.name + '.raw.html', html);
-					if (options.resultsBeautify) fs.writeFile(__dirname + '/results/' + sample.name + '.beautify.html', beautify_html(html));
-					if (options.resultsRaw) fs.writeFile(__dirname + '/results/' + sample.name + ' unescaped.raw.html', htmlUnescaped);
-					if (options.resultsBeautify) fs.writeFile(__dirname + '/results/' + sample.name + ' unescaped.beautify.html', beautify_html(htmlUnescaped));
+					if (options.resultsRaw) fs.writeFileSync(__dirname + '/results/' + sample.name + '.raw.html', html);
+					if (options.resultsBeautify) fs.writeFileSync(__dirname + '/results/' + sample.name + '.beautify.html', beautify_html(html));
+					if (options.resultsRaw) fs.writeFileSync(__dirname + '/results/' + sample.name + ' unescaped.raw.html', htmlUnescaped);
+					if (options.resultsBeautify) fs.writeFileSync(__dirname + '/results/' + sample.name + ' unescaped.beautify.html', beautify_html(htmlUnescaped));
 
 					if (err || errUnescaped) error = true;
 
