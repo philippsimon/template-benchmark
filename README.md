@@ -27,97 +27,97 @@
 
 ## Results
 ```
-	Rendering 100000 templates:
+Rendering 100000 templates:
 
-	ECT
-	  Escaped   : 1848ms
-	  Unescaped : 108ms
-	  Total     : 1956ms
+ECT
+  Escaped   : 1848ms
+  Unescaped : 108ms
+  Total     : 1956ms
 
-	Dust
-	  Escaped   : 2554ms
-	  Unescaped : 704ms
-	  Total     : 3258ms
+Dust
+  Escaped   : 2554ms
+  Unescaped : 704ms
+  Total     : 3258ms
 
-	Hogan.js
-	  Escaped   : 2525ms
-	  Unescaped : 520ms
-	  Total     : 3045ms
+Hogan.js
+  Escaped   : 2525ms
+  Unescaped : 520ms
+  Total     : 3045ms
 
-	Gaikan
-	  Escaped   : 1894ms
-	  Unescaped : 70ms
-	  Total     : 1964ms
+Gaikan
+  Escaped   : 1894ms
+  Unescaped : 70ms
+  Total     : 1964ms
 
-	Fest
-	  Escaped   : 2164ms
-	  Unescaped : 236ms
-	  Total     : 2400ms
+Fest
+  Escaped   : 2164ms
+  Unescaped : 236ms
+  Total     : 2400ms
 
-	EJS without `with`
-	  Escaped   : 4445ms
-	  Unescaped : 378ms
-	  Total     : 4823ms
+EJS without `with`
+  Escaped   : 4445ms
+  Unescaped : 378ms
+  Total     : 4823ms
 
-	doT
-	  Escaped   : 3035ms
-	  Unescaped : 68ms
-	  Total     : 3103ms
+doT
+  Escaped   : 3035ms
+  Unescaped : 68ms
+  Total     : 3103ms
 
-	doT (printercu)
-	  Escaped   : 5760ms
-	  Unescaped : 1650ms
-	  Total     : 7410ms
+doT (printercu)
+  Escaped   : 5760ms
+  Unescaped : 1650ms
+  Total     : 7410ms
 
-	doT (printercu) without `with`
-	  Escaped   : 3231ms
-	  Unescaped : 66ms
-	  Total     : 3297ms
+doT (printercu) without `with`
+  Escaped   : 3231ms
+  Unescaped : 66ms
+  Total     : 3297ms
 
-	diet dot
-	  Escaped   : 16ms
-	  Unescaped : 68ms
-	  Total     : 84ms
+diet dot
+  Escaped   : 16ms
+  Unescaped : 68ms
+  Total     : 84ms
 
-	Swig
-	  Escaped   : 5453ms
-	  Unescaped : 451ms
-	  Total     : 5904ms
+Swig
+  Escaped   : 5453ms
+  Unescaped : 451ms
+  Total     : 5904ms
 
-	Underscore
-	  Escaped   : 3110ms
-	  Unescaped : 1807ms
-	  Total     : 4917ms
+Underscore
+  Escaped   : 3110ms
+  Unescaped : 1807ms
+  Total     : 4917ms
 
-	EJS
-	  Escaped   : 4572ms
-	  Unescaped : 1574ms
-	  Total     : 6146ms
+EJS
+  Escaped   : 4572ms
+  Unescaped : 1574ms
+  Total     : 6146ms
 
-	Eco
-	  Escaped   : 7013ms
-	  Unescaped : 794ms
-	  Total     : 7807ms
+Eco
+  Escaped   : 7013ms
+  Unescaped : 794ms
+  Total     : 7807ms
 
-	Handlebars.js
-	  Escaped   : 5570ms
-	  Unescaped : 2323ms
-	  Total     : 7893ms
+Handlebars.js
+  Escaped   : 5570ms
+  Unescaped : 2323ms
+  Total     : 7893ms
 
-	Jade
-	  Escaped   : 8738ms
-	  Unescaped : 5589ms
-	  Total     : 14327ms
+Jade
+  Escaped   : 8738ms
+  Unescaped : 5589ms
+  Total     : 14327ms
 
-	Jade without `with`
-	  Escaped   : 6755ms
-	  Unescaped : 3599ms
-	  Total     : 10354ms
+Jade without `with`
+  Escaped   : 6755ms
+  Unescaped : 3599ms
+  Total     : 10354ms
 
-	CoffeeKup
-	  Escaped   : 6873ms
-	  Unescaped : 7124ms
-	  Total     : 13997ms
+CoffeeKup
+  Escaped   : 6873ms
+  Unescaped : 7124ms
+  Total     : 13997ms
 ```
 
 ## Usage
