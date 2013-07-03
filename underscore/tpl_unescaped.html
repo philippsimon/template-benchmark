@@ -4,8 +4,8 @@
 	</head>
 	<body>
 		<p><%= text %></p>
-		<% if (projects.length) { %>
-			<% for (var project in projects) { %>
+		<% if (projects.length) { var projects_length = projects.length; %>
+			<% for (var i = 0; i < projects_length; i++) { var project = projects[i]; %>
 				<a href="<%= project.url %>"><%= project.name %></a>
 				<p><%= project.description %></p>
 			<% } %>

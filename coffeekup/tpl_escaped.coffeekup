@@ -1,11 +1,11 @@
 html ->
 	head ->
-		title @title
+		title h(@title)
 	body ->
-		p @text
+		p h(@text)
 		if @projects.length
 			for project in @projects
-				a href : project.url, -> project.name
-				p project.description
+				a href : h(project.url), -> h(project.name)
+				p h(project.description)
 		else
 			No projects

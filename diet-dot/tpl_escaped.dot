@@ -1,13 +1,13 @@
 <html>
 	<head>
-		<title>[[!data.title]]</title>
+		<title>[[=data.esc(data.title)]]</title>
 	</head>
 	<body>
-		<p>[[!data.text]]</p>
+		<p>[[=data.esc(data.text)]]</p>
 		[[? data.projects.length ]]
 			[[~data.projects :project:index]]
-				<a href="[[!project.url]]">[[!project.name ]]</a>
-				<p>[[!project.description ]]</p>
+				<a href="[[=data.esc(project.url)]]">[[=data.esc(project.name) ]]</a>
+				<p>[[=data.esc(project.description)]]</p>
 			[[~]]
 		[[??]]
 			No projects

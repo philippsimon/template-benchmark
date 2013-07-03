@@ -1,5 +1,6 @@
 var fs = require('fs');
 var jsBeautify = require('js-beautify');
+var ent = require('ent');
 
 /**
  * Validate if samples return correct result
@@ -30,7 +31,7 @@ module.exports = function validate(samples, data, options, callback) {
 	var error = false;
 
 	function booleanToColoredString(value) {
-		var red   = '\u001b[31m';
+		var red = '\u001b[31m';
 		var green = '\u001b[32m';
 		var reset = '\u001b[0m';
 
@@ -38,10 +39,16 @@ module.exports = function validate(samples, data, options, callback) {
 		else return red + value + reset;
 	}
 
+	function replaceEntities(html) {
+		return html.replace(/&#[#0-9a-z]{2,5};/gmi, function(match) {
+			return ent.encode(ent.decode(match));
+		});
+	}
+
 	function beautify_html(html) {
 		if (html) {
 			// clean html
-			html = html.replace(/[\r\n]+/gm, ' ').replace(/\s+/gm, ' ').replace(/> /gm, '>').trim();
+			html = replaceEntities(html.replace(/[\r\n]+/gm, ' ').replace(/\s+/gm, ' ').replace(/> /gm, '>').trim());
 			return jsBeautify.html(html, {
 				"wrap_line_length": 0
 			});

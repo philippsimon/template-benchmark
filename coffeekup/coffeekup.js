@@ -13,7 +13,6 @@ module.exports.prepare = function(data, done) {
 module.exports.prepareUnescaped = function(data, done) {
 	var str = fs.readFileSync(__dirname + '/tpl_unescaped.coffeekup', 'utf8');
 	tplData = data;
-	tplData.autoescape = true;
 	compiled = coffeekup.compile(str);
 	done();
 };
