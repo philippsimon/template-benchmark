@@ -21,9 +21,9 @@ module.exports = function validate(samples, data, options, callback) {
 
 	if (!options) options = {};
 	if (!('resultsRaw' in options)) options.resultsRaw = true;
-	if (!('resultsBeautify' in options)) options.resultsBeautify = true;
-	if (!('validResultFileEscaped' in options)) options.validResultFileEscaped = 'valid-result-escaped.beautfiy.html';
-	if (!('validResultFileUnescaped' in options)) options.validResultFileUnescaped = 'valid-result-unescaped.beautfiy.html';
+	if (!('resultsBeautify' in options)) options.resultsBeautify = false;
+	if (!('validResultFileEscaped' in options)) options.validResultFileEscaped = 'valid-result-escaped.html';
+	if (!('validResultFileUnescaped' in options)) options.validResultFileUnescaped = 'valid-result-unescaped.html';
 
 	var validResultEscaped = fs.readFileSync(__dirname + '/' + options.validResultFileEscaped, 'utf8');
 	var validResultUnescaped = fs.readFileSync(__dirname + '/' + options.validResultFileUnescaped, 'utf8');
@@ -68,10 +68,10 @@ module.exports = function validate(samples, data, options, callback) {
 					if (errUnescaped) errors++;
 
 					// store results
-					if (options.resultsRaw) fs.writeFileSync(__dirname + '/results/' + sample.name + '.raw.html', html);
-					if (options.resultsBeautify) fs.writeFileSync(__dirname + '/results/' + sample.name + '.beautify.html', beautify_html(html));
-					if (options.resultsRaw) fs.writeFileSync(__dirname + '/results/' + sample.name + ' unescaped.raw.html', htmlUnescaped);
-					if (options.resultsBeautify) fs.writeFileSync(__dirname + '/results/' + sample.name + ' unescaped.beautify.html', beautify_html(htmlUnescaped));
+					if (options.resultsRaw) fs.writeFileSync(__dirname + '/results/' + sample.name + ' escaped.html', html);
+					if (options.resultsBeautify) fs.writeFileSync(__dirname + '/results/' + sample.name + ' escaped beautified.html', beautify_html(html));
+					if (options.resultsRaw) fs.writeFileSync(__dirname + '/results/' + sample.name + ' unescaped.html', htmlUnescaped);
+					if (options.resultsBeautify) fs.writeFileSync(__dirname + '/results/' + sample.name + ' unescaped beautified.html', beautify_html(htmlUnescaped));
 
 					// log results
 					console.log(sample.name);
