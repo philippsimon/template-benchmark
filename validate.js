@@ -28,15 +28,15 @@ module.exports = function validate(samples, data, options, callback) {
 	var validResultEscaped = fs.readFileSync(__dirname + '/' + options.validResultFileEscaped, 'utf8');
 	var validResultUnescaped = fs.readFileSync(__dirname + '/' + options.validResultFileUnescaped, 'utf8');
 
-	var error = false;
+	var errors = 0;
 
-	function booleanToColoredString(value) {
+	function booleanToColoredPassedOrFailed(value) {
 		var red = '\u001b[31m';
 		var green = '\u001b[32m';
 		var reset = '\u001b[0m';
 
-		if (value) return green + value + reset;
-		else return red + value + reset;
+		if (value) return green + 'passed' + reset;
+		else return red + 'failed' + reset;
 	}
 
 	function replaceEntities(html) {
@@ -63,31 +63,35 @@ module.exports = function validate(samples, data, options, callback) {
 		if (i < samples.length) {
 			var sample = samples[i];
 			validateEscaped(sample.name, sample.sample, function(err, html) {
+				if (err) errors++;
 				validateUnescaped(sample.name, sample.sample, function(errUnescaped, htmlUnescaped) {
+					if (errUnescaped) errors++;
+
 					// store results
 					if (options.resultsRaw) fs.writeFileSync(__dirname + '/results/' + sample.name + '.raw.html', html);
 					if (options.resultsBeautify) fs.writeFileSync(__dirname + '/results/' + sample.name + '.beautify.html', beautify_html(html));
 					if (options.resultsRaw) fs.writeFileSync(__dirname + '/results/' + sample.name + ' unescaped.raw.html', htmlUnescaped);
 					if (options.resultsBeautify) fs.writeFileSync(__dirname + '/results/' + sample.name + ' unescaped.beautify.html', beautify_html(htmlUnescaped));
 
-					if (err || errUnescaped) error = true;
-
+					// log results
 					console.log(sample.name);
-					console.log('  Escaped   : ' + booleanToColoredString(err));
-					console.log('  Unescaped : ' + booleanToColoredString(errUnescaped));
+					console.log('  Escaped   : ' + booleanToColoredPassedOrFailed(!err));
+					console.log('  Unescaped : ' + booleanToColoredPassedOrFailed(!errUnescaped));
 					console.log('');
 					validateSamples(i + 1);
 				});
 			});
 		} else {
-			if (callback) callback(error);
+			var passed = samples.length * 2 - errors;
+			console.log(passed + '/' + (samples.length * 2) + ' passed\n');
+			if (callback) callback(errors ? errors : false);
 		}
 	}
 
 	function validateEscaped(name, sample, cb) {
 		sample.prepare(data, function() {
 			sample.step(function(error, html) {
-				cb(equalHtml(validResultEscaped, html), html);
+				cb(errorInHtml(validResultEscaped, html), html);
 			});
 		});
 	}
@@ -95,16 +99,16 @@ module.exports = function validate(samples, data, options, callback) {
 	function validateUnescaped(name, sample, cb) {
 		sample.prepareUnescaped(data, function() {
 			sample.step(function(error, html) {
-				cb(equalHtml(validResultUnescaped, html), html);
+				cb(errorInHtml(validResultUnescaped, html), html);
 			});
 		});
 	}
 
-	function equalHtml(html1, html2) {
+	function errorInHtml(html1, html2) {
 		html1 = beautify_html(html1);
 		html2 = beautify_html(html2);
 
-		return html1 === html2;
+		return html1 !== html2;
 	}
 
 	console.log('Valid HTML result');
