@@ -3,7 +3,9 @@ var hogan = require('hogan.js');
 var compiled;
 var tplData;
 
-module.exports.prepare = function (data, done) {
+module.exports.name = 'Hogan.js';
+
+module.exports.prepareEscaped = function (data, done) {
 	var str = fs.readFileSync(__dirname + '/tpl_escaped.hogan', 'utf8');
 	tplData = data;
 	compiled = hogan.compile(str);
@@ -17,7 +19,7 @@ module.exports.prepareUnescaped = function (data, done) {
 	done();
 };
 
-module.exports.step = function (done) {
+module.exports.render = function (done) {
 	var html = compiled.render(tplData);
 	done(undefined, html);
 };

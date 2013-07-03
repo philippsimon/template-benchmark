@@ -62,13 +62,13 @@ module.exports = function validate(samples, data, options, callback) {
 
 		if (i < samples.length) {
 			var sample = samples[i];
-			validateEscaped(sample.name, sample.sample, function(err, html) {
+			validateEscaped(sample, function(err, htmlEscaped) {
 				if (err) errors++;
-				validateUnescaped(sample.name, sample.sample, function(errUnescaped, htmlUnescaped) {
+				validateUnescaped(sample, function(errUnescaped, htmlUnescaped) {
 					if (errUnescaped) errors++;
 
 					// store results
-					if (options.resultsRaw) fs.writeFileSync(__dirname + '/results/' + sample.name + ' escaped.html', html);
+					if (options.resultsRaw) fs.writeFileSync(__dirname + '/results/' + sample.name + ' escaped.html', htmlEscaped);
 					if (options.resultsBeautify) fs.writeFileSync(__dirname + '/results/' + sample.name + ' escaped beautified.html', beautify_html(html));
 					if (options.resultsRaw) fs.writeFileSync(__dirname + '/results/' + sample.name + ' unescaped.html', htmlUnescaped);
 					if (options.resultsBeautify) fs.writeFileSync(__dirname + '/results/' + sample.name + ' unescaped beautified.html', beautify_html(htmlUnescaped));
@@ -88,17 +88,17 @@ module.exports = function validate(samples, data, options, callback) {
 		}
 	}
 
-	function validateEscaped(name, sample, cb) {
-		sample.prepare(data, function() {
-			sample.step(function(error, html) {
+	function validateEscaped(sample, cb) {
+		sample.prepareEscaped(data, function() {
+			sample.render(function(error, html) {
 				cb(errorInHtml(validResultEscaped, html), html);
 			});
 		});
 	}
 
-	function validateUnescaped(name, sample, cb) {
+	function validateUnescaped(sample, cb) {
 		sample.prepareUnescaped(data, function() {
-			sample.step(function(error, html) {
+			sample.render(function(error, html) {
 				cb(errorInHtml(validResultUnescaped, html), html);
 			});
 		});

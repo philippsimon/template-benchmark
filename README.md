@@ -30,95 +30,157 @@
 ```
 Rendering 100000 templates:
 
-ECT
-  Escaped   : 1784ms
-  Unescaped : 105ms
-  Total     : 1889ms
-
-Dust
-  Escaped   : 2854ms
-  Unescaped : 655ms
-  Total     : 3509ms
-
-Hogan.js
-  Escaped   : 2507ms
-  Unescaped : 699ms
-  Total     : 3206ms
-
-Gaikan
-  Escaped   : 1691ms
-  Unescaped : 70ms
-  Total     : 1761ms
-
-Fest
-  Escaped   : 2184ms
-  Unescaped : 244ms
-  Total     : 2428ms
-
-EJS without `with`
-  Escaped   : 4563ms
-  Unescaped : 372ms
-  Total     : 4935ms
-
-doT
-  Escaped   : 2919ms
-  Unescaped : 66ms
-  Total     : 2985ms
-
-doT (printercu)
-  Escaped   : 5092ms
-  Unescaped : 1479ms
-  Total     : 6571ms
-
-doT (printercu) without `with`
-  Escaped   : 3043ms
-  Unescaped : 72ms
-  Total     : 3115ms
+CoffeeKup
+  Escaped   : 7117ms
+  Unescaped : 3482ms
+  Total     : 10599ms
 
 diet dot
-  Escaped   : 2042ms
-  Unescaped : 72ms
-  Total     : 2114ms
+  Escaped   : 2015ms
+  Unescaped : 65ms
+  Total     : 2080ms
 
-Swig
-  Escaped   : 5229ms
-  Unescaped : 414ms
-  Total     : 5643ms
+doT
+  Escaped   : 2822ms
+  Unescaped : 63ms
+  Total     : 2885ms
 
-Underscore
-  Escaped   : 7026ms
-  Unescaped : 2935ms
-  Total     : 9961ms
+doT (printercu)
+  Escaped   : 4709ms
+  Unescaped : 1495ms
+  Total     : 6204ms
 
-EJS
-  Escaped   : 6385ms
-  Unescaped : 1660ms
-  Total     : 8045ms
+doT (printercu) without `with`
+  Escaped   : 2808ms
+  Unescaped : 66ms
+  Total     : 2874ms
+
+Dust
+  Escaped   : 2535ms
+  Unescaped : 669ms
+  Total     : 3204ms
 
 Eco
-  Escaped   : 8053ms
-  Unescaped : 846ms
-  Total     : 8899ms
+  Escaped   : 6562ms
+  Unescaped : 782ms
+  Total     : 7344ms
+
+ECT
+  Escaped   : 1807ms
+  Unescaped : 107ms
+  Total     : 1914ms
+
+EJS
+  Escaped   : 4360ms
+  Unescaped : 1501ms
+  Total     : 5861ms
+
+EJS without `with`
+  Escaped   : 4408ms
+  Unescaped : 390ms
+  Total     : 4798ms
+
+Fest
+  Escaped   : 2191ms
+  Unescaped : 253ms
+  Total     : 2444ms
+
+Gaikan
+  Escaped   : 1694ms
+  Unescaped : 69ms
+  Total     : 1763ms
 
 Handlebars.js
-  Escaped   : 5928ms
-  Unescaped : 2294ms
-  Total     : 8222ms
+  Escaped   : 5388ms
+  Unescaped : 2240ms
+  Total     : 7628ms
+
+Hogan.js
+  Escaped   : 2627ms
+  Unescaped : 727ms
+  Total     : 3354ms
 
 Jade
-  Escaped   : 10346ms
-  Unescaped : 5271ms
-  Total     : 15617ms
+  Escaped   : 10280ms
+  Unescaped : 5190ms
+  Total     : 15470ms
 
 Jade without `with`
-  Escaped   : 7110ms
-  Unescaped : 3248ms
-  Total     : 10358ms
+  Escaped   : 6579ms
+  Unescaped : 3534ms
+  Total     : 10113ms
 
-CoffeeKup
-  Escaped   : 7749ms
-  Unescaped : 4211ms
-  Total     : 11960ms
+Swig
+  Escaped   : 5236ms
+  Unescaped : 417ms
+  Total     : 5653ms
+
+Underscore
+  Escaped   : 6911ms
+  Unescaped : 2957ms
+  Total     : 9868ms
+
+--------------
+
+Ranking escaped
+  100.00%  Gaikan : 1694ms
+  106.67%  ECT : 1807ms
+  118.95%  diet dot : 2015ms
+  129.34%  Fest : 2191ms
+  149.65%  Dust : 2535ms
+  155.08%  Hogan.js : 2627ms
+  165.76%  doT (printercu) without `with` : 2808ms
+  166.59%  doT : 2822ms
+  257.38%  EJS : 4360ms
+  260.21%  EJS without `with` : 4408ms
+  277.98%  doT (printercu) : 4709ms
+  309.09%  Swig : 5236ms
+  318.06%  Handlebars.js : 5388ms
+  387.37%  Eco : 6562ms
+  388.37%  Jade without `with` : 6579ms
+  407.97%  Underscore : 6911ms
+  420.13%  CoffeeKup : 7117ms
+  606.85%  Jade : 10280ms
+
+Ranking unescaped
+  100.00%  doT : 63ms
+  103.17%  diet dot : 65ms
+  104.76%  doT (printercu) without `with` : 66ms
+  109.52%  Gaikan : 69ms
+  169.84%  ECT : 107ms
+  401.59%  Fest : 253ms
+  619.05%  EJS without `with` : 390ms
+  661.90%  Swig : 417ms
+  1061.90%  Dust : 669ms
+  1153.97%  Hogan.js : 727ms
+  1241.27%  Eco : 782ms
+  2373.02%  doT (printercu) : 1495ms
+  2382.54%  EJS : 1501ms
+  3555.56%  Handlebars.js : 2240ms
+  4693.65%  Underscore : 2957ms
+  5526.98%  CoffeeKup : 3482ms
+  5609.52%  Jade without `with` : 3534ms
+  8238.10%  Jade : 5190ms
+
+Ranking total
+  100.00%  Gaikan : 1763ms
+  108.56%  ECT : 1914ms
+  117.98%  diet dot : 2080ms
+  138.63%  Fest : 2444ms
+  163.02%  doT (printercu) without `with` : 2874ms
+  163.64%  doT : 2885ms
+  181.74%  Dust : 3204ms
+  190.24%  Hogan.js : 3354ms
+  272.15%  EJS without `with` : 4798ms
+  320.65%  Swig : 5653ms
+  332.44%  EJS : 5861ms
+  351.90%  doT (printercu) : 6204ms
+  416.56%  Eco : 7344ms
+  432.67%  Handlebars.js : 7628ms
+  559.73%  Underscore : 9868ms
+  573.62%  Jade without `with` : 10113ms
+  601.19%  CoffeeKup : 10599ms
+  877.48%  Jade : 15470ms
 ```
 
 ## Usage

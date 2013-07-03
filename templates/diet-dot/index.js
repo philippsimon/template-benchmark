@@ -3,7 +3,9 @@ var dietDot = require('diet-dot');
 var compiled;
 var tplData;
 
-module.exports.prepare = function(data, done) {
+module.exports.name = 'diet dot';
+
+module.exports.prepareEscaped = function(data, done) {
 	var str = fs.readFileSync(__dirname + '/tpl_escaped.dot', 'utf8');
 	tplData = data;
 	// from http://jsperf.com/encode-html-entities/29
@@ -21,7 +23,7 @@ module.exports.prepareUnescaped = function(data, done) {
 	done();
 };
 
-module.exports.step = function(done) {
+module.exports.render = function(done) {
 	var html = compiled(tplData);
 	done(undefined, html);
 };

@@ -3,7 +3,9 @@ var coffeekup = require('coffeekup');
 var compiled;
 var tplData;
 
-module.exports.prepare = function(data, done) {
+module.exports.name = 'CoffeeKup';
+
+module.exports.prepareEscaped = function(data, done) {
 	var str = fs.readFileSync(__dirname + '/tpl_escaped.coffeekup', 'utf8');
 	tplData = data;
 	compiled = coffeekup.compile(str);
@@ -17,7 +19,7 @@ module.exports.prepareUnescaped = function(data, done) {
 	done();
 };
 
-module.exports.step = function(done) {
+module.exports.render = function(done) {
 	var html = compiled(tplData);
 	done(undefined, html);
 };

@@ -6,7 +6,9 @@ swig.init({
 	root: __dirname
 });
 
-module.exports.prepare = function (data, done) {
+module.exports.name = 'Swig';
+
+module.exports.prepareEscaped = function (data, done) {
 	tplData = data;
 	compiled = swig.compileFile('./tpl_escaped.swig');
 	done();
@@ -18,7 +20,7 @@ module.exports.prepareUnescaped = function (data, done) {
 	done();
 };
 
-module.exports.step = function (done) {
+module.exports.render = function (done) {
 	var html = compiled.render(tplData);
 	done(undefined, html);
 };

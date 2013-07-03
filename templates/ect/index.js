@@ -3,9 +3,11 @@ var renderer;
 var tplData;
 var tpl;
 
+module.exports.name = 'ECT';
+
 renderer = new ECT({ root: __dirname, cache: true, debug: true });
 
-module.exports.prepare = function (data, done) {
+module.exports.prepareEscaped = function (data, done) {
 	tplData = data;
 	tpl = 'tpl_escaped.ect';
 	renderer.render(tpl, tplData);
@@ -19,7 +21,7 @@ module.exports.prepareUnescaped = function (data, done) {
 	done();
 };
 
-module.exports.step = function (done) {
+module.exports.render = function (done) {
 	var html = renderer.render(tpl, tplData);
 	done(undefined, html);
 };

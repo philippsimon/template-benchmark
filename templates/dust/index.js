@@ -3,7 +3,9 @@ var dust = require('dustjs-linkedin');
 var compiled;
 var tplData;
 
-module.exports.prepare = function (data, done) {
+module.exports.name = 'Dust';
+
+module.exports.prepareEscaped = function (data, done) {
 	var str = fs.readFileSync(__dirname + '/tpl_escaped.dust', 'utf8');
 	tplData = data;
 
@@ -23,7 +25,7 @@ module.exports.prepareUnescaped = function (data, done) {
 	done();
 };
 
-module.exports.step = function (done) {
+module.exports.render = function (done) {
 	dust.render('test', tplData, function(err, html) {
 		done(err, html);
 	});

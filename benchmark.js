@@ -1,106 +1,128 @@
-var data = require('./templates/data');
+var fs = require('fs');
+
+var data = require('./data');
 
 var argv = require('optimist').argv;
 
 var count = 100000;
-var ect = require('./templates/ect/ect.js');
-var ejs = require('./templates/ejs/ejs.js');
-var ejsWithoutWith = require('./templates/ejs-without-with/ejs.js');
-var jade = require('./templates/jade/jade.js');
-var jadeWithoutWith = require('./templates/jade-without-with/jade.js');
-var eco = require('./templates/eco/eco.js');
-var swig = require('./templates/swig/swig.js');
-var hogan = require('./templates/hogan/hogan.js');
-var dust = require('./templates/dust/dust.js');
-var fest = require('./templates/fest/fest.js');
-var dot = require('./templates/dot/dot.js');
-var dotPrintercu = require('./templates/dot-printercu/dot.js');
-var dotPrintercuWithoutWith = require('./templates/dot-printercu-without-with/dot.js');
-var dietDot = require('./templates/diet-dot/diet-dot.js');
-var handlebars = require('./templates/handlebars/handlebars.js');
-var coffeekup = require('./templates/coffeekup/coffeekup.js');
-var underscore = require('./templates/underscore/underscore.js');
-var gaikan = require('./templates/gaikan/gaikan.js');
 
-var test = function(name, sample, cb) {
+var results = [],
+	samples = [];
+
+function loadSamples(path) {
+	var templates = fs.readdirSync(path);
+	for (var i = 0; i < templates.length; i++) {
+		samples.push(require(path + '/' + templates[i]));
+	}
+}
+loadSamples(__dirname + '/templates');
+
+function runTests(i) {
+	if (!i) i = 0;
+
+	if (i < samples.length) {
+		var sample = samples[i];
+		testEscaped(sample, function(err, resultEscaped) {
+			testUnescaped(sample, function(err, resultUnescaped) {
+				var total = resultEscaped + resultUnescaped,
+					s = {
+						name: sample.name,
+						escaped: resultEscaped,
+						unescaped: resultUnescaped,
+						total: total
+					};
+
+				console.log(sample.name);
+				console.log('  Escaped   : ' + resultEscaped + 'ms');
+				console.log('  Unescaped : ' + resultUnescaped + 'ms');
+				console.log('  Total     : ' + total + 'ms');
+				console.log('');
+
+				results.push(s);
+
+				runTests(i + 1);
+			});
+		});
+	} else {
+		console.log('--------------');
+		console.log('');
+		showResultsPercent('Ranking escaped', 'escaped');
+		showResultsPercent('Ranking unescaped', 'unescaped');
+		showResultsPercent('Ranking total', 'total');
+	}
+}
+
+function testEscaped(sample, cb) {
 	var i = 0;
 	var start;
 	var done = function(error, html) {
 		i++;
 		if (i === count) {
 			var now = Date.now();
-			cb(null, name, now - start);
+			cb(null, now - start);
 		}
 	};
-	sample.prepare(data, function() {
+	sample.prepareEscaped(data, function() {
 		start = Date.now();
 		for (var j = 0; j < count; j++) {
-			sample.step(done);
+			sample.render(done);
 		}
 	});
-};
+}
 
-var testUnescaped = function(name, sample, cb) {
+function testUnescaped(sample, cb) {
 	var i = 0;
 	var start;
 	var done = function(error, html) {
 		i++;
 		if (i === count) {
 			var now = Date.now();
-			cb(null, name, now - start);
+			cb(null, now - start);
 		}
 	};
 	sample.prepareUnescaped(data, function() {
 		start = Date.now();
 		for (var j = 0; j < count; j++) {
-			sample.step(done);
+			sample.render(done);
 		}
 	});
-};
+}
 
-var samples = [
-	{ name : 'ECT', sample : ect },
-	{ name : 'Dust', sample : dust },
-	{ name : 'Hogan.js', sample : hogan },
-	{ name : 'Gaikan', sample: gaikan },
-	{ name : 'Fest', sample : fest },
-	{ name : 'EJS without `with`', sample : ejsWithoutWith },
-	{ name : 'doT', sample : dot },
-	{ name : 'doT (printercu)', sample : dotPrintercu },
-	{ name : 'doT (printercu) without `with`', sample : dotPrintercuWithoutWith },
-	{ name : 'diet dot', sample : dietDot },
-	{ name : 'Swig', sample : swig },
-	{ name : 'Underscore', sample : underscore },
-	{ name : 'EJS', sample : ejs },
-	{ name : 'Eco', sample : eco },
-	{ name : 'Handlebars.js', sample : handlebars },
-	{ name : 'Jade', sample : jade },
-	{ name : 'Jade without `with`', sample : jadeWithoutWith },
-	{ name : 'CoffeeKup', sample : coffeekup }
-];
+function showResultsPercent(label, prop) {
+	var i, l, per, minVal, arr = results.slice();
 
-var runTests = function (i) {
-	if (!i) i = 0;
-
-	if (i < samples.length) {
-		var sample = samples[i];
-		test(sample.name, sample.sample, function (err, name, result) {
-			testUnescaped(sample.name, sample.sample, function (err, name, resultUnescaped) {
-				console.log(name);
-				console.log('  Escaped   : ' + result + 'ms');
-				console.log('  Unescaped : ' + resultUnescaped + 'ms');
-				console.log('  Total     : ' + (result + resultUnescaped) + 'ms');
-				console.log('');
-				runTests(i+1);
-			});
-		});
+	function log(name, val, per) {
+		console.log('  ' + per.toFixed(2) + '%  ' + name + ' : ' + val + 'ms');
 	}
-};
 
+	arr.sort(function(a, b) {
+		return a[prop] - b[prop];
+	});
+
+	minVal = arr[0][prop];
+	console.log(label);
+
+	log(arr[0].name, minVal, 100);
+
+	for (i = 1, l = arr.length; l > i; i += 1) {
+		if (minVal) {
+			per = (arr[i][prop] / minVal) * 100;
+		} else {
+			per = arr[i][prop] * 100;
+		}
+
+		log(arr[i].name, arr[i][prop], per);
+	}
+
+	console.log('');
+}
+
+// run test
 if (argv.test) {
 	require('./validate')(samples, data, function(error) {
 		if (error) process.exit(1);
 	});
+	// run benchmarks
 } else {
 	console.log('Rendering ' + count + ' templates:\n');
 	runTests();
