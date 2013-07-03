@@ -1,26 +1,26 @@
-var data = require('./data');
+var data = require('./templates/data');
 
 var argv = require('optimist').argv;
 
 var count = 100000;
-var ect = require('./ect/ect.js');
-var ejs = require('./ejs/ejs.js');
-var ejsWithoutWith = require('./ejs-without-with/ejs.js');
-var jade = require('./jade/jade.js');
-var jadeWithoutWith = require('./jade-without-with/jade.js');
-var eco = require('./eco/eco.js');
-var swig = require('./swig/swig.js');
-var hogan = require('./hogan/hogan.js');
-var dust = require('./dust/dust.js');
-var fest = require('./fest/fest.js');
-var dot = require('./dot/dot.js');
-var dotPrintercu = require('./dot-printercu/dot.js');
-var dotPrintercuWithoutWith = require('./dot-printercu-without-with/dot.js');
-var dietDot = require('./diet-dot/diet-dot.js');
-var handlebars = require('./handlebars/handlebars.js');
-var coffeekup = require('./coffeekup/coffeekup.js');
-var underscore = require('./underscore/underscore.js');
-var gaikan = require('./gaikan/gaikan.js');
+var ect = require('./templates/ect/ect.js');
+var ejs = require('./templates/ejs/ejs.js');
+var ejsWithoutWith = require('./templates/ejs-without-with/ejs.js');
+var jade = require('./templates/jade/jade.js');
+var jadeWithoutWith = require('./templates/jade-without-with/jade.js');
+var eco = require('./templates/eco/eco.js');
+var swig = require('./templates/swig/swig.js');
+var hogan = require('./templates/hogan/hogan.js');
+var dust = require('./templates/dust/dust.js');
+var fest = require('./templates/fest/fest.js');
+var dot = require('./templates/dot/dot.js');
+var dotPrintercu = require('./templates/dot-printercu/dot.js');
+var dotPrintercuWithoutWith = require('./templates/dot-printercu-without-with/dot.js');
+var dietDot = require('./templates/diet-dot/diet-dot.js');
+var handlebars = require('./templates/handlebars/handlebars.js');
+var coffeekup = require('./templates/coffeekup/coffeekup.js');
+var underscore = require('./templates/underscore/underscore.js');
+var gaikan = require('./templates/gaikan/gaikan.js');
 
 var test = function(name, sample, cb) {
 	var i = 0;
