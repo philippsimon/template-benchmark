@@ -67,7 +67,7 @@ module.exports = function validate(samples, data, options, callback) {
 
 					console.log(sample.name);
 					console.log('  Escaped   : ' + booleanToColoredString(err));
-					console.log('  Unescaped : ' + booleanToColoredString(err));
+					console.log('  Unescaped : ' + booleanToColoredString(errUnescaped));
 					console.log('');
 					validateSamples(i + 1);
 				});
