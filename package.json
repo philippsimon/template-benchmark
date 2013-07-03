@@ -28,6 +28,7 @@
 	},
 	"devDependencies": {
 		"optimist": "latest",
-		"js-beautify": "latest"
+		"js-beautify": "latest",
+		"ent": "latest"
 	}
 }
