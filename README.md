@@ -4,7 +4,7 @@
 ## Engines
 
 - [CoffeeKup](https://github.com/mauricemach/coffeekup) v0.3.1 ([website](http://coffeekup.org/))
-- [diet dot](https://github.com/jamescostian/diet-dot) v1.0.1
+- [diet dot](https://github.com/jamescostian/diet-dot) v1.0.1 (added the _safe_tags_regex_ escape function from [this webpage](http://jsperf.com/encode-html-entities/29))
 - [doT](https://github.com/olado/doT) v1.0.1 ([website](http://olado.github.com/doT/))
 - [doT printercu](https://github.com/printercu/doT) latest
 - [Dust](https://github.com/linkedin/dustjs) v1.2.6 ([website](http://linkedin.github.com/dustjs/))
