@@ -25,7 +25,73 @@
 - OS: Ubuntu Server 10.04
 - Node.JS version: 0.10.11
 
-## Results
+## Ranking
+
+```
+Rendering 100000 templates:
+
+Ranking escaped
+  100.00%  Gaikan : 1694ms
+  106.67%  ECT : 1807ms
+  118.95%  diet dot : 2015ms
+  129.34%  Fest : 2191ms
+  149.65%  Dust : 2535ms
+  155.08%  Hogan.js : 2627ms
+  165.76%  doT (printercu) without `with` : 2808ms
+  166.59%  doT : 2822ms
+  257.38%  EJS : 4360ms
+  260.21%  EJS without `with` : 4408ms
+  277.98%  doT (printercu) : 4709ms
+  309.09%  Swig : 5236ms
+  318.06%  Handlebars.js : 5388ms
+  387.37%  Eco : 6562ms
+  388.37%  Jade without `with` : 6579ms
+  407.97%  Underscore : 6911ms
+  420.13%  CoffeeKup : 7117ms
+  606.85%  Jade : 10280ms
+
+Ranking unescaped
+  100.00%  doT : 63ms
+  103.17%  diet dot : 65ms
+  104.76%  doT (printercu) without `with` : 66ms
+  109.52%  Gaikan : 69ms
+  169.84%  ECT : 107ms
+  401.59%  Fest : 253ms
+  619.05%  EJS without `with` : 390ms
+  661.90%  Swig : 417ms
+  1061.90%  Dust : 669ms
+  1153.97%  Hogan.js : 727ms
+  1241.27%  Eco : 782ms
+  2373.02%  doT (printercu) : 1495ms
+  2382.54%  EJS : 1501ms
+  3555.56%  Handlebars.js : 2240ms
+  4693.65%  Underscore : 2957ms
+  5526.98%  CoffeeKup : 3482ms
+  5609.52%  Jade without `with` : 3534ms
+  8238.10%  Jade : 5190ms
+
+Ranking total
+  100.00%  Gaikan : 1763ms
+  108.56%  ECT : 1914ms
+  117.98%  diet dot : 2080ms
+  138.63%  Fest : 2444ms
+  163.02%  doT (printercu) without `with` : 2874ms
+  163.64%  doT : 2885ms
+  181.74%  Dust : 3204ms
+  190.24%  Hogan.js : 3354ms
+  272.15%  EJS without `with` : 4798ms
+  320.65%  Swig : 5653ms
+  332.44%  EJS : 5861ms
+  351.90%  doT (printercu) : 6204ms
+  416.56%  Eco : 7344ms
+  432.67%  Handlebars.js : 7628ms
+  559.73%  Underscore : 9868ms
+  573.62%  Jade without `with` : 10113ms
+  601.19%  CoffeeKup : 10599ms
+  877.48%  Jade : 15470ms
+```
+
+## Results by engine
 
 ```
 Rendering 100000 templates:
@@ -119,68 +185,6 @@ Underscore
   Escaped   : 6911ms
   Unescaped : 2957ms
   Total     : 9868ms
-
---------------
-
-Ranking escaped
-  100.00%  Gaikan : 1694ms
-  106.67%  ECT : 1807ms
-  118.95%  diet dot : 2015ms
-  129.34%  Fest : 2191ms
-  149.65%  Dust : 2535ms
-  155.08%  Hogan.js : 2627ms
-  165.76%  doT (printercu) without `with` : 2808ms
-  166.59%  doT : 2822ms
-  257.38%  EJS : 4360ms
-  260.21%  EJS without `with` : 4408ms
-  277.98%  doT (printercu) : 4709ms
-  309.09%  Swig : 5236ms
-  318.06%  Handlebars.js : 5388ms
-  387.37%  Eco : 6562ms
-  388.37%  Jade without `with` : 6579ms
-  407.97%  Underscore : 6911ms
-  420.13%  CoffeeKup : 7117ms
-  606.85%  Jade : 10280ms
-
-Ranking unescaped
-  100.00%  doT : 63ms
-  103.17%  diet dot : 65ms
-  104.76%  doT (printercu) without `with` : 66ms
-  109.52%  Gaikan : 69ms
-  169.84%  ECT : 107ms
-  401.59%  Fest : 253ms
-  619.05%  EJS without `with` : 390ms
-  661.90%  Swig : 417ms
-  1061.90%  Dust : 669ms
-  1153.97%  Hogan.js : 727ms
-  1241.27%  Eco : 782ms
-  2373.02%  doT (printercu) : 1495ms
-  2382.54%  EJS : 1501ms
-  3555.56%  Handlebars.js : 2240ms
-  4693.65%  Underscore : 2957ms
-  5526.98%  CoffeeKup : 3482ms
-  5609.52%  Jade without `with` : 3534ms
-  8238.10%  Jade : 5190ms
-
-Ranking total
-  100.00%  Gaikan : 1763ms
-  108.56%  ECT : 1914ms
-  117.98%  diet dot : 2080ms
-  138.63%  Fest : 2444ms
-  163.02%  doT (printercu) without `with` : 2874ms
-  163.64%  doT : 2885ms
-  181.74%  Dust : 3204ms
-  190.24%  Hogan.js : 3354ms
-  272.15%  EJS without `with` : 4798ms
-  320.65%  Swig : 5653ms
-  332.44%  EJS : 5861ms
-  351.90%  doT (printercu) : 6204ms
-  416.56%  Eco : 7344ms
-  432.67%  Handlebars.js : 7628ms
-  559.73%  Underscore : 9868ms
-  573.62%  Jade without `with` : 10113ms
-  601.19%  CoffeeKup : 10599ms
-  877.48%  Jade : 15470ms
 ```
 
 ## Usage
