@@ -193,3 +193,7 @@ Underscore
 	cd template-benchmark
 	npm install
 	node ./benchmark.js
+
+## Test
+
+  npm test
