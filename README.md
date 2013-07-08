@@ -188,12 +188,14 @@ Underscore
 ```
 
 ## Usage
-
+```
 	git clone git://github.com/baryshev/template-benchmark.git
 	cd template-benchmark
 	npm install
 	node ./benchmark.js
+```
 
 ## Test
-
+```
   npm test
+```
