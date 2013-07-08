@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-var data = require('./data');
+var data = require('./data/data');
 
 var argv = require('optimist').argv;
 
@@ -119,7 +119,7 @@ function showResultsPercent(label, prop) {
 
 // run test
 if (argv.test) {
-	require('./validate')(samples, data, function(error) {
+	require('./test/validate')(samples, data, function(error) {
 		if (error) process.exit(1);
 	});
 	// run benchmarks
