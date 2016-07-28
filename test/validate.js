@@ -41,17 +41,18 @@ module.exports = function validate(samples, data, options, callback) {
 
 	function replaceEntities(html) {
 		return html.replace(/&#[#0-9a-z]{2,5};/gmi, function(match) {
-			return ent.encode(ent.decode(match));
+			return ent.encode(ent.decode(match), {named: true});
 		});
 	}
 
 	function beautify_html(html) {
 		if (html) {
 			// clean html
-			html = replaceEntities(html.replace(/[\r\n]+/gm, ' ').replace(/\s+/gm, ' ').replace(/> /gm, '>').trim());
-			return jsBeautify.html(html, {
+			html = jsBeautify.html(html, {
 				"wrap_line_length": 0
 			});
+			html = replaceEntities(html.replace(/[\r\n]+/gm, ' ').replace(/\s+/gm, ' ').replace(/> /gm, '>').trim());
+			return html;
 		} else {
 			return '';
 		}
@@ -72,7 +73,6 @@ module.exports = function validate(samples, data, options, callback) {
 					if (options.resultsBeautify) fs.writeFileSync(__dirname + '/../results/' + sample.name + ' escaped beautified.html', beautify_html(html));
 					if (options.resultsRaw) fs.writeFileSync(__dirname + '/../results/' + sample.name + ' unescaped.html', htmlUnescaped);
 					if (options.resultsBeautify) fs.writeFileSync(__dirname + '/../results/' + sample.name + ' unescaped beautified.html', beautify_html(htmlUnescaped));
-
 					// log results
 					console.log(sample.name);
 					console.log('  Escaped   : ' + booleanToColoredPassedOrFailed(!err));
@@ -107,6 +107,10 @@ module.exports = function validate(samples, data, options, callback) {
 	function errorInHtml(html1, html2) {
 		html1 = beautify_html(html1);
 		html2 = beautify_html(html2);
+
+    if (html1 !== html2) {
+      console.log(html1, '\n\n', html2);
+    }
 
 		return html1 !== html2;
 	}

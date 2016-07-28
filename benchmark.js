@@ -1,4 +1,7 @@
 var fs = require('fs');
+var os = require('os');
+
+require('coffee-script/register');
 
 var data = require('./data/data');
 
@@ -8,6 +11,13 @@ var count = 100000;
 
 var results = [],
 	samples = [];
+
+function displaySystemInfo() {
+  console.log('CPU: ' + os.cpus()[0].model);
+  console.log('Platform: ' + os.platform());
+  console.log('Node.JS version: ' + process.version);
+  console.log('');
+}
 
 function loadSamples(path) {
 	var templates = fs.readdirSync(path);
@@ -124,6 +134,7 @@ if (argv.test) {
 	});
 	// run benchmarks
 } else {
+  displaySystemInfo();
 	console.log('Rendering ' + count + ' templates:\n');
 	runTests();
 }

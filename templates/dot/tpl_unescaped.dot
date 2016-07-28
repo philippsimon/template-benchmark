@@ -1,11 +1,11 @@
 <html>
 	<head>
-		<title>{{=it.title}}</title>
+		<title>{{=title}}</title>
 	</head>
 	<body>
-		<p>{{=it.text}}</p>
-		{{? it.projects.length }}
-			{{~it.projects :project:index}}
+		<p>{{=text}}</p>
+		{{? projects.length }}
+			{{~projects :project}}
 				<a href="{{=project.url}}">{{=project.name }}</a>
 				<p>{{=project.description }}</p>
 			{{~}}

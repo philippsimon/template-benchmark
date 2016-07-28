@@ -5,9 +5,9 @@
 	<body>
 		<p>{{!it.text}}</p>
 		{{? it.projects.length }}
-			{{~it.projects :project}}
+			{{~ it.projects :project }}
 				<a href="{{!project.url}}">{{!project.name }}</a>
-				<p>{{!project.description }}</p>
+				<p>{{! project.description }}</p>
 			{{~}}
 		{{??}}
 			No projects

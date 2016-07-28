@@ -1,3 +1,5 @@
+'use strict';
+
 var fest = require('fest');
 var tplData;
 var compiled;
