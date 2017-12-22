@@ -6,13 +6,13 @@
 - [CoffeeKup](https://github.com/mauricemach/coffeekup) v0.3.1 ([website](http://coffeekup.org/))
 - [diet dot](https://github.com/jamescostian/diet-dot) v1.0.1 (added the _safe_tags_regex_ escape function from [this webpage](http://jsperf.com/encode-html-entities/29))
 - [doT philippsimon](https://github.com/philippsimon/doT) latest
-- [Dust](https://github.com/linkedin/dustjs) v2.7.3 ([website](http://linkedin.github.com/dustjs/))
+- [Dust](https://github.com/linkedin/dustjs) v2.7.5 ([website](http://linkedin.github.com/dustjs/))
 - [Eco](https://github.com/sstephenson/eco) v1.1.0-rc-3
 - [ECT](https://github.com/baryshev/ect) v0.5.9 ([website](http://ectjs.com/))
-- [EJS](https://github.com/visionmedia/ejs) v2.5.1
-- [Fest](https://github.com/mailru/fest) v0.8.2
+- [EJS](https://github.com/mde/ejs) v2.5.7 ([website](http://ejs.co))
+- [Fest](https://github.com/mailru/fest) v0.12.1
 - [Gaikan](https://github.com/Deathspike/gaikan) v2.0.2
-- [Handlebars.js](https://github.com/wycats/handlebars.js/) v4.0.5 ([website](http://handlebarsjs.com/))
+- [Handlebars.js](https://github.com/wycats/handlebars.js/) v4.0.11 ([website](http://handlebarsjs.com/))
 - [Hogan.js](https://github.com/twitter/hogan.js) v3.0.2 ([website](http://twitter.github.com/hogan.js/))
 - [Jade](https://github.com/visionmedia/jade) v1.11.0 ([website](http://jade-lang.com/))
 - [mustache.js](https://github.com/janl/mustache.js) v2.3.0 ([website](http://mustache.github.io/))
@@ -31,61 +31,61 @@
 Rendering 100000 templates:
 
 Ranking escaped
-  100.00%  ECT : 1201ms
-  111.24%  Fest : 1336ms
-  114.40%  gaikan : 1374ms
-  114.49%  Hogan.js : 1375ms
-  133.47%  doT without `with` : 1603ms
-  134.64%  Jade without `with` : 1617ms
-  137.05%  EJS without `with` : 1646ms
-  146.04%  Handlebars.js : 1754ms
-  193.26%  Dust : 2321ms
-  231.72%  Swig : 2783ms
-  262.45%  Eco : 3152ms
-  286.59%  Jade : 3442ms
-  294.17%  CoffeeKup : 3533ms
-  297.42%  mustache.js : 3572ms
-  312.99%  Underscore : 3759ms
-  341.22%  doT : 4098ms
-  342.55%  EJS : 4114ms
+  100.00%  ECT : 1112ms
+  103.60%  gaikan : 1152ms
+  116.28%  Fest : 1293ms
+  123.20%  Hogan.js : 1370ms
+  138.94%  Jade without `with` : 1545ms
+  142.90%  doT without `with` : 1589ms
+  143.08%  Handlebars.js : 1591ms
+  147.39%  EJS without `with` : 1639ms
+  175.36%  Dust : 1950ms
+  259.08%  Swig : 2881ms
+  271.58%  Eco : 3020ms
+  277.34%  Underscore : 3084ms
+  282.64%  Jade : 3143ms
+  318.97%  mustache.js : 3547ms
+  335.97%  EJS : 3736ms
+  362.41%  CoffeeKup : 4030ms
+  406.74%  doT : 4523ms
 
 Ranking unescaped
-  100.00%  doT without `with` : 34ms
-  114.71%  gaikan : 39ms
-  188.24%  ECT : 64ms
-  523.53%  Swig : 178ms
-  526.47%  Fest : 179ms
-  688.24%  Hogan.js : 234ms
-  1176.47%  Jade without `with` : 400ms
-  1285.29%  Handlebars.js : 437ms
-  1302.94%  EJS without `with` : 443ms
-  1479.41%  Eco : 503ms
-  1911.76%  Dust : 650ms
-  4870.59%  CoffeeKup : 1656ms
-  4947.06%  mustache.js : 1682ms
-  5008.82%  Jade : 1703ms
-  5361.76%  doT : 1823ms
-  5823.53%  Underscore : 1980ms
-  6144.12%  EJS : 2089ms
+  100.00%  gaikan : 34ms
+  126.47%  doT without `with` : 43ms
+  176.47%  ECT : 60ms
+  535.29%  Swig : 182ms
+  547.06%  Fest : 186ms
+  605.88%  Hogan.js : 206ms
+  1111.76%  Jade without `with` : 378ms
+  1238.24%  Handlebars.js : 421ms
+  1288.24%  EJS without `with` : 438ms
+  1376.47%  Eco : 468ms
+  1935.29%  Dust : 658ms
+  4729.41%  Underscore : 1608ms
+  4764.71%  mustache.js : 1620ms
+  4985.29%  CoffeeKup : 1695ms
+  5364.71%  Jade : 1824ms
+  5938.24%  doT : 2019ms
+  6223.53%  EJS : 2116ms
 
 Ranking total
-  100.00%  ECT : 1265ms
-  111.70%  gaikan : 1413ms
-  119.76%  Fest : 1515ms
-  127.19%  Hogan.js : 1609ms
-  129.41%  doT without `with` : 1637ms
-  159.45%  Jade without `with` : 2017ms
-  165.14%  EJS without `with` : 2089ms
-  173.20%  Handlebars.js : 2191ms
-  234.07%  Swig : 2961ms
-  234.86%  Dust : 2971ms
-  288.93%  Eco : 3655ms
-  406.72%  Jade : 5145ms
-  410.20%  CoffeeKup : 5189ms
-  415.34%  mustache.js : 5254ms
-  453.68%  Underscore : 5739ms
-  468.06%  doT : 5921ms
-  490.36%  EJS : 6203ms
+  100.00%  ECT : 1172ms
+  101.19%  gaikan : 1186ms
+  126.19%  Fest : 1479ms
+  134.47%  Hogan.js : 1576ms
+  139.25%  doT without `with` : 1632ms
+  164.08%  Jade without `with` : 1923ms
+  171.67%  Handlebars.js : 2012ms
+  177.22%  EJS without `with` : 2077ms
+  222.53%  Dust : 2608ms
+  261.35%  Swig : 3063ms
+  297.61%  Eco : 3488ms
+  400.34%  Underscore : 4692ms
+  423.81%  Jade : 4967ms
+  440.87%  mustache.js : 5167ms
+  488.48%  CoffeeKup : 5725ms
+  499.32%  EJS : 5852ms
+  558.19%  doT : 6542ms
 ```
 
 ## Results by engine
