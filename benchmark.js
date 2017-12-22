@@ -72,7 +72,7 @@ function testEscaped(sample, cb) {
 			cb(null, now - start);
 		}
 	};
-	sample.prepareEscaped(data, function() {
+	sample.prepareEscaped(JSON.parse(JSON.stringify(data)), function() {
 		start = Date.now();
 		for (var j = 0; j < count; j++) {
 			sample.render(done);
@@ -90,7 +90,7 @@ function testUnescaped(sample, cb) {
 			cb(null, now - start);
 		}
 	};
-	sample.prepareUnescaped(data, function() {
+	sample.prepareUnescaped(JSON.parse(JSON.stringify(data)), function() {
 		start = Date.now();
 		for (var j = 0; j < count; j++) {
 			sample.render(done);
