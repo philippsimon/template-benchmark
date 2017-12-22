@@ -22,7 +22,7 @@
 
 - CPU: Intel(R) Core(TM) i7-4960HQ CPU @ 2.60GHz
 - Platform: darwin
-- Node.JS version: v4.4.7
+- Node.JS version: v6.11.0
 
 ## Ranking
 
@@ -30,58 +30,61 @@
 Rendering 100000 templates:
 
 Ranking escaped
-  100.00%  ECT : 926ms
-  114.25%  gaikan : 1058ms
-  127.86%  Hogan.js : 1184ms
-  131.64%  Fest : 1219ms
-  159.29%  Dust : 1475ms
-  168.79%  doT without `with` : 1563ms
-  309.07%  Swig : 2862ms
-  352.70%  Eco : 3266ms
-  382.72%  Jade : 3544ms
-  470.63%  CoffeeKup : 4358ms
-  565.44%  Handlebars.js : 5236ms
-  569.76%  doT : 5276ms
-  649.35%  Jade without `with` : 6013ms
-  726.35%  EJS : 6726ms
-  830.35%  Underscore : 7689ms
-  1121.60%  EJS without `with` : 10386ms
+  100.00%  ECT : 1201ms
+  111.24%  Fest : 1336ms
+  114.40%  gaikan : 1374ms
+  114.49%  Hogan.js : 1375ms
+  133.47%  doT without `with` : 1603ms
+  134.64%  Jade without `with` : 1617ms
+  137.05%  EJS without `with` : 1646ms
+  146.04%  Handlebars.js : 1754ms
+  193.26%  Dust : 2321ms
+  231.72%  Swig : 2783ms
+  262.45%  Eco : 3152ms
+  286.59%  Jade : 3442ms
+  294.17%  CoffeeKup : 3533ms
+  297.42%  mustache.js : 3572ms
+  312.99%  Underscore : 3759ms
+  341.22%  doT : 4098ms
+  342.55%  EJS : 4114ms
 
 Ranking unescaped
-  100.00%  doT without `with` : 39ms
-  105.13%  gaikan : 41ms
-  164.10%  ECT : 64ms
-  507.69%  Hogan.js : 198ms
-  551.28%  Fest : 215ms
-  1258.97%  Jade without `with` : 491ms
-  1407.69%  Swig : 549ms
-  1533.33%  Handlebars.js : 598ms
-  1671.79%  Dust : 652ms
-  1769.23%  Eco : 690ms
-  4943.59%  Underscore : 1928ms
-  5143.59%  EJS without `with` : 2006ms
-  5741.03%  Jade : 2239ms
-  7000.00%  CoffeeKup : 2730ms
-  7092.31%  doT : 2766ms
-  10684.62%  EJS : 4167ms
+  100.00%  doT without `with` : 34ms
+  114.71%  gaikan : 39ms
+  188.24%  ECT : 64ms
+  523.53%  Swig : 178ms
+  526.47%  Fest : 179ms
+  688.24%  Hogan.js : 234ms
+  1176.47%  Jade without `with` : 400ms
+  1285.29%  Handlebars.js : 437ms
+  1302.94%  EJS without `with` : 443ms
+  1479.41%  Eco : 503ms
+  1911.76%  Dust : 650ms
+  4870.59%  CoffeeKup : 1656ms
+  4947.06%  mustache.js : 1682ms
+  5008.82%  Jade : 1703ms
+  5361.76%  doT : 1823ms
+  5823.53%  Underscore : 1980ms
+  6144.12%  EJS : 2089ms
 
 Ranking total
-  100.00%  ECT : 990ms
-  111.01%  gaikan : 1099ms
-  139.60%  Hogan.js : 1382ms
-  144.85%  Fest : 1434ms
-  161.82%  doT without `with` : 1602ms
-  214.85%  Dust : 2127ms
-  344.55%  Swig : 3411ms
-  399.60%  Eco : 3956ms
-  584.14%  Jade : 5783ms
-  589.29%  Handlebars.js : 5834ms
-  656.97%  Jade without `with` : 6504ms
-  715.96%  CoffeeKup : 7088ms
-  812.32%  doT : 8042ms
-  971.41%  Underscore : 9617ms
-  1100.30%  EJS : 10893ms
-  1251.72%  EJS without `with` : 12392ms
+  100.00%  ECT : 1265ms
+  111.70%  gaikan : 1413ms
+  119.76%  Fest : 1515ms
+  127.19%  Hogan.js : 1609ms
+  129.41%  doT without `with` : 1637ms
+  159.45%  Jade without `with` : 2017ms
+  165.14%  EJS without `with` : 2089ms
+  173.20%  Handlebars.js : 2191ms
+  234.07%  Swig : 2961ms
+  234.86%  Dust : 2971ms
+  288.93%  Eco : 3655ms
+  406.72%  Jade : 5145ms
+  410.20%  CoffeeKup : 5189ms
+  415.34%  mustache.js : 5254ms
+  453.68%  Underscore : 5739ms
+  468.06%  doT : 5921ms
+  490.36%  EJS : 6203ms
 ```
 
 ## Results by engine
