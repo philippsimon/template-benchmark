@@ -15,6 +15,7 @@
 - [Handlebars.js](https://github.com/wycats/handlebars.js/) v4.0.5 ([website](http://handlebarsjs.com/))
 - [Hogan.js](https://github.com/twitter/hogan.js) v3.0.2 ([website](http://twitter.github.com/hogan.js/))
 - [Jade](https://github.com/visionmedia/jade) v1.11.0 ([website](http://jade-lang.com/))
+- [mustache.js](https://github.com/janl/mustache.js) v2.3.0 ([website](http://mustache.github.io/))
 - [Swig](https://github.com/paularmstrong/swig) v1.4.2
 - [Underscore](https://github.com/documentcloud/underscore) v1.8.3 ([website](http://underscorejs.org/))
 
